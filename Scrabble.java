@@ -48,6 +48,9 @@ public class Scrabble {
 
 	// Checks if the given word is in the dictionary.
 	public static boolean isWordInDictionary(String word) {
+		if (word.isEmpty()){
+			return false;
+		}
 		for (int i = 0; i < DICTIONARY.length; i++){
 			if (word.equals(DICTIONARY[i]))
 			return true;
@@ -102,21 +105,20 @@ public class Scrabble {
 			// non-whitespace characters. Whitespace is either space characters, or  
 			// end-of-line characters.
 			String input = in.readString();
-			if (input.equals(".")){
-				break;
-			}
 			if(isWordInDictionary(input)){
 			int currentScore = wordScore(input);
 			score += wordScore(input);
 			System.out.println(input + " earned " + currentScore + " points. Score: " + score + " points");
 			hand = MyString.remove(hand, input);
 			}
-			else{
-				System.out.println("No such word in the dictionary. Try again.");
+			else if(!isWordInDictionary(input) && !input.equals(".")){
+				System.out.println("Invalid word. Try again.");
+			}
+			if (input.equals(".")){
+				break;
 			}
 			//// Replace the following break statement with code
 			//// that completes the hand playing loop
-			
 		}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
@@ -133,8 +135,9 @@ public class Scrabble {
 		// The variable in is set to represent the stream of characters 
 		// coming from the keyboard. Used for getting the user's inputs.  
 		In in = new In();
+		boolean playing = true;
 
-		while(true) {
+		while(playing) {
 			System.out.println("Enter n to deal a new hand, or e to end the game:");
 			
 			// Gets the user's input, which is all the characters entered by 
@@ -146,7 +149,7 @@ public class Scrabble {
 				playHand(newHand);
 			}
 			if (input.equals("e")){
-				break;
+				playing = false;
 			}
 
 			//// Replace the following break statement with code
