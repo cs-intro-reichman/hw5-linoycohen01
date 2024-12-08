@@ -4,17 +4,23 @@
 public class MyString {
     public static void main(String args[]) {
         String hello = "hello";
-        System.out.println(subsetOf("runi", "runiiiii"));
-        System.out.println(countChar(hello, 'h'));
-        System.out.println(countChar(hello, 'l'));
-        System.out.println(countChar(hello, 'z'));
-        System.out.println(spacedString(hello));
-        System.out.println(remove("committee", "meet"));
-        System.out.println("\nTesting remove:");
-        System.out.println("committee - meet -> " + MyString.remove("committee", "meet") + " (expected: comit)");
-        System.out.println("abc - abc -> " + MyString.remove("abc", "abc") + " (expected: )");
-        System.out.println("abc - b -> " + MyString.remove("abc", "b") + " (expected: ac)");
-        System.out.println("hello - empty string -> " + MyString.remove("hello", "") + " (expected: hello)");
+            System.out.println("\nTesting spacedString:");
+            System.out.println("silent -> \"" + MyString.spacedString("silent") + "\" (expected: s i l e n t)");
+            System.out.println("a -> \"" + MyString.spacedString("a") + "\" (expected: a)");
+            System.out.println("empty string -> \"" + MyString.spacedString("") + "\" (expected: )");
+            System.out.println("hi -> \"" + MyString.spacedString("hi") + "\" (expected: h i)");
+        
+     //   System.out.println(subsetOf("runi", "runiiiii"));
+    //  System.out.println(countChar(hello, 'h'));
+    //    System.out.println(countChar(hello, 'l'));
+    //    System.out.println(countChar(hello, 'z'));
+    //    System.out.println(spacedString(hello));
+    //    System.out.println(remove("committee", "meet"));
+    //    System.out.println("\nTesting remove:");
+    //   System.out.println("committee - meet -> " + MyString.remove("committee", "meet") + " (expected: comit)");
+    //    System.out.println("abc - abc -> " + MyString.remove("abc", "abc") + " (expected: )");
+    //    System.out.println("abc - b -> " + MyString.remove("abc", "b") + " (expected: ac)");
+    //    System.out.println("hello - empty string -> " + MyString.remove("hello", "") + " (expected: hello)");
 
     }
  
@@ -78,9 +84,9 @@ public class MyString {
      * @return a string consisting of the characters of str, separated by spaces.
      */
     public static String spacedString(String str) {
-        String spaced = "";
+        String spaced = " ";
         if(str.isEmpty()){
-            return " ";
+            return spaced;
         }
         for (int i = 0; i < str.length()-1; i++){
             spaced += str.charAt(i) + " ";
