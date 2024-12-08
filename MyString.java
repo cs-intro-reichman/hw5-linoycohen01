@@ -4,6 +4,7 @@
 public class MyString {
     public static void main(String args[]) {
         String hello = "hello";
+        System.out.println(subsetOf("runi", "runiiiii"));
         System.out.println(countChar(hello, 'h'));
         System.out.println(countChar(hello, 'l'));
         System.out.println(countChar(hello, 'z'));
@@ -14,6 +15,7 @@ public class MyString {
         System.out.println("abc - abc -> " + MyString.remove("abc", "abc") + " (expected: )");
         System.out.println("abc - b -> " + MyString.remove("abc", "b") + " (expected: ac)");
         System.out.println("hello - empty string -> " + MyString.remove("hello", "") + " (expected: hello)");
+
     }
  
     
@@ -60,7 +62,7 @@ public class MyString {
             return true;
         }
         for (int i = 0; i < str1.length(); i++){
-            if(countChar(str2, str1.charAt(i)) != countChar(str1,  str1.charAt(i))){
+            if(countChar(str2, str1.charAt(i)) < countChar(str1,  str1.charAt(i))){
                 return false;
             }
          }
